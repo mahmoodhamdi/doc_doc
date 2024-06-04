@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:doc_doc/core/utils/networking/api_constants.dart';
+import 'package:doc_doc/core/networking/api_constants.dart';
 import 'package:doc_doc/features/login/data/models/login_request_body.dart';
 import 'package:doc_doc/features/login/data/models/login_response.dart';
 import 'package:retrofit/http.dart';
