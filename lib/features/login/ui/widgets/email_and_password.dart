@@ -3,9 +3,7 @@ import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/core/utils/theme/widget_themes/text_theme.dart';
 import 'package:doc_doc/core/widgets/app_text_button.dart';
 import 'package:doc_doc/core/widgets/app_text_form_field.dart';
-import 'package:doc_doc/features/login/data/models/login_request_body.dart';
 import 'package:doc_doc/features/login/logic/login_cubit.dart';
-import 'package:doc_doc/features/login/ui/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,18 +17,11 @@ class EmailAndPassword extends StatefulWidget {
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
 
-  bool hasLowercase = false;
-  bool hasUppercase = false;
-  bool hasSpecialCharacters = false;
-  bool hasNumber = false;
-  bool hasMinLength = false;
-
   late TextEditingController passwordController;
   @override
   void initState() {
     super.initState();
     passwordController = context.read<LoginCubit>().passwordController;
-    setupPasswordControllerListener();
   }
 
   @override
@@ -75,14 +66,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               return null;
             },
           ),
-          verticalSpace(24),
-          PasswordValidations(
-            hasLowerCase: hasLowercase,
-            hasUpperCase: hasUppercase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
           verticalSpace(16),
           Align(
             alignment: AlignmentDirectional.centerEnd,
@@ -104,28 +87,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   void dispose() {
-        passwordController.dispose();
+    passwordController.dispose();
 
     super.dispose();
   }
 
-  void setupPasswordControllerListener() {
-    passwordController.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(passwordController.text);
-        hasUppercase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacters =
-            AppRegex.hasSpecialCharacter(passwordController.text);
-        hasNumber = AppRegex.hasNumber(passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(passwordController.text);
-      });
-    });
-  }
-
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-          );
+      context.read<LoginCubit>().emitLoginStates();
     }
   }
 }
