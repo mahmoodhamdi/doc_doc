@@ -105,31 +105,6 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-          verticalSpace(18),
-          AppTextFormField(
-            controller:
-                context.read<SignUpCubit>().passwordConfirmationController,
-            hintText: 'Password Confirmation',
-            isObscureText: isPasswordConfirmationObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isPasswordConfirmationObscureText =
-                      !isPasswordConfirmationObscureText;
-                });
-              },
-              child: Icon(
-                isPasswordConfirmationObscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-              ),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-          ),
           verticalSpace(24),
           PasswordValidations(
             hasLowerCase: hasLowercase,

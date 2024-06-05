@@ -33,11 +33,11 @@ class SignUpView extends StatelessWidget {
                   'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                   style: TextStyles.font14GrayRegular,
                 ),
-                verticalSpace(36),
+                verticalSpace(32),
                 Column(
                   children: [
                     const SignUpForm(),
-                    verticalSpace(40),
+                    verticalSpace(16),
                     AppTextButton(
                       buttonText: "Create Account",
                       textStyle: TextStyles.font16WhiteSemiBold,
@@ -47,7 +47,7 @@ class SignUpView extends StatelessWidget {
                     ),
                     verticalSpace(16),
                     const TermsAndConditionsText(),
-                    verticalSpace(30),
+                    verticalSpace(16),
                     const AlreadyHaveAccountText(),
                     const SignupBlocListener(),
                   ],

@@ -34,9 +34,9 @@ class LoginView extends StatelessWidget {
                 const DividerWidget(text: "Or sign in with"),
                 verticalSpace(32),
                 const SignInMethodsSection(),
-                verticalSpace(32),
+                verticalSpace(48),
                 const TermsAndConditionsText(),
-                verticalSpace(16),
+                verticalSpace(32),
                 const DontHaveAccountText(),
                 const LoginBlocListener()
               ])
