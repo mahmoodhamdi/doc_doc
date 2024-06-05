@@ -27,7 +27,7 @@ class LoginView extends StatelessWidget {
               Text(
                   "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
                   style: TextStyles.font14GrayRegular),
-              verticalSpace(32),
+              verticalSpace(48),
               Column(children: [
                 const EmailAndPassword(),
                 verticalSpace(32),

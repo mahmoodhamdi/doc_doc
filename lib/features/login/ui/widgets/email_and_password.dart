@@ -94,12 +94,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             buttonText: 'Login',
             textStyle: TextStyles.font16WhiteSemiBold,
             onPressed: () {
-              if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-                context.read<LoginCubit>().emitLoginStates(LoginRequestBody(
-                    email: context.read<LoginCubit>().emailController.text,
-                    password:
-                        context.read<LoginCubit>().passwordController.text));
-              }
+              validateThenDoLogin(context);
             },
           ),
         ],
@@ -109,7 +104,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
 
   @override
   void dispose() {
-    passwordController.dispose();
+        passwordController.dispose();
+
     super.dispose();
   }
 
@@ -124,5 +120,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         hasMinLength = AppRegex.hasMinLength(passwordController.text);
       });
     });
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates(
+          );
+    }
   }
 }
