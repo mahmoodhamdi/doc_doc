@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/already_have_account_text.dart';
 
 class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+  const SignUpView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +33,11 @@ class SignUpView extends StatelessWidget {
                   'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                   style: TextStyles.font14GrayRegular,
                 ),
-                verticalSpace(36),
+                verticalSpace(36), // Adjusted spacing
                 Column(
                   children: [
                     const SignUpForm(),
-                    verticalSpace(40),
+                    verticalSpace(40), // Adjusted spacing
                     AppTextButton(
                       buttonText: "Create Account",
                       textStyle: TextStyles.font16WhiteSemiBold,
@@ -45,9 +45,9 @@ class SignUpView extends StatelessWidget {
                         validateThenDoSignup(context);
                       },
                     ),
-                    verticalSpace(16),
+                    verticalSpace(30), // Adjusted spacing
                     const TermsAndConditionsText(),
-                    verticalSpace(30),
+                    verticalSpace(30), // Adjusted spacing
                     const AlreadyHaveAccountText(),
                     const SignupBlocListener(),
                   ],

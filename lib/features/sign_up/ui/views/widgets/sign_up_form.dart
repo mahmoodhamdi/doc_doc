@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -60,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().nameController,
           ),
-          verticalSpace(18),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             hintText: 'Phone number',
             validator: (value) {
@@ -72,7 +72,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().phoneController,
           ),
-          verticalSpace(18),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
@@ -84,7 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().emailController,
           ),
-          verticalSpace(18),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             controller: context.read<SignUpCubit>().passwordController,
             hintText: 'Password',
@@ -105,7 +105,7 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-          verticalSpace(18),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             controller:
                 context.read<SignUpCubit>().passwordConfirmationController,
@@ -130,7 +130,7 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-          verticalSpace(24),
+          verticalSpace(24), // Adjusted spacing
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasUpperCase: hasUppercase,
