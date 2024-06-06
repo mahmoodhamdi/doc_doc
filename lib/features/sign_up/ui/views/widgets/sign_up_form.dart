@@ -3,12 +3,11 @@ import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/core/widgets/app_text_form_field.dart';
 import 'package:doc_doc/features/login/ui/widgets/password_validations.dart';
 import 'package:doc_doc/features/sign_up/logic/sign_up_cubit.dart';
-import 'package:doc_doc/features/sign_up/ui/views/widgets/already_have_account_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -61,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().nameController,
           ),
-          verticalSpace(16),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             hintText: 'Phone number',
             validator: (value) {
@@ -73,7 +72,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().phoneController,
           ),
-          verticalSpace(16),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
@@ -85,7 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().emailController,
           ),
-          verticalSpace(16),
+          verticalSpace(18), // Adjusted spacing
           AppTextFormField(
             controller: context.read<SignUpCubit>().passwordController,
             hintText: 'Password',
@@ -106,7 +105,32 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-           verticalSpace(16),
+          verticalSpace(18), // Adjusted spacing
+          AppTextFormField(
+            controller:
+                context.read<SignUpCubit>().passwordConfirmationController,
+            hintText: 'Password Confirmation',
+            isObscureText: isPasswordConfirmationObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordConfirmationObscureText =
+                      !isPasswordConfirmationObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordConfirmationObscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+              ),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+            },
+          ),
+          verticalSpace(24), // Adjusted spacing
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasUpperCase: hasUppercase,

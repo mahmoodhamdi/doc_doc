@@ -11,7 +11,6 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
