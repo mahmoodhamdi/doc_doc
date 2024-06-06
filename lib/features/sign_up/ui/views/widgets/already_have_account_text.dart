@@ -5,11 +5,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AlreadyHaveAccountText extends StatelessWidget {
-  const AlreadyHaveAccountText({super.key});
+  const AlreadyHaveAccountText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RichText(
+      textAlign: TextAlign.center, // Moved from hot_fix/fix_auth_ui
       text: TextSpan(
         children: [
           TextSpan(

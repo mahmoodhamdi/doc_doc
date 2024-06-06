@@ -10,7 +10,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-   TextEditingController phoneController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isObscureText = true;
 
@@ -33,6 +33,4 @@ class SignUpCubit extends Cubit<SignUpState> {
         failure: (error) => emit(
             SignUpState.signupError(error: error.apiErrorModel.message ?? '')));
   }
-
-
 }
