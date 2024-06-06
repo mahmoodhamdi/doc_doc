@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:doc_doc/core/utils/logger.dart';
 import 'package:doc_doc/core/networking/api_constants.dart';
 import 'package:doc_doc/core/networking/api_error_model.dart';
+import 'package:doc_doc/core/utils/logger.dart';
 
 enum DataSource {
   NO_CONTENT,
@@ -192,9 +192,7 @@ ApiErrorModel _handleError(DioException error) {
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
       return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
-      return DataSource.DEFAULT.getFailure();
-  }
+    }
 }
 
 class ApiInternalStatus {
