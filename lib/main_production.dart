@@ -11,3 +11,4 @@ void main() async{
   runApp(const DocDocApp());
 }
 // flutter run --release -t lib/main_production.dart --flavor production
+// flutter build apk --flavor production -t lib/main_production.dart

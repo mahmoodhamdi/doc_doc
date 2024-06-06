@@ -10,3 +10,4 @@ void main() async {
   runApp(const DocDocApp());
 }
 // flutter run --release -t lib/main_development.dart --flavor development
+// flutter build apk --flavor development -t lib/main_development.dart
