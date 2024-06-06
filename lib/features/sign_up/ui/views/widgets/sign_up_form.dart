@@ -3,6 +3,7 @@ import 'package:doc_doc/core/helpers/spacing.dart';
 import 'package:doc_doc/core/widgets/app_text_form_field.dart';
 import 'package:doc_doc/features/login/ui/widgets/password_validations.dart';
 import 'package:doc_doc/features/sign_up/logic/sign_up_cubit.dart';
+import 'package:doc_doc/features/sign_up/ui/views/widgets/already_have_account_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,7 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().nameController,
           ),
-          verticalSpace(18),
+          verticalSpace(16),
           AppTextFormField(
             hintText: 'Phone number',
             validator: (value) {
@@ -72,7 +73,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().phoneController,
           ),
-          verticalSpace(18),
+          verticalSpace(16),
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
@@ -84,7 +85,7 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             controller: context.read<SignUpCubit>().emailController,
           ),
-          verticalSpace(18),
+          verticalSpace(16),
           AppTextFormField(
             controller: context.read<SignUpCubit>().passwordController,
             hintText: 'Password',
@@ -105,32 +106,7 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-          verticalSpace(18),
-          AppTextFormField(
-            controller:
-                context.read<SignUpCubit>().passwordConfirmationController,
-            hintText: 'Password Confirmation',
-            isObscureText: isPasswordConfirmationObscureText,
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isPasswordConfirmationObscureText =
-                      !isPasswordConfirmationObscureText;
-                });
-              },
-              child: Icon(
-                isPasswordConfirmationObscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-              ),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid password';
-              }
-            },
-          ),
-          verticalSpace(24),
+           verticalSpace(16),
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasUpperCase: hasUppercase,

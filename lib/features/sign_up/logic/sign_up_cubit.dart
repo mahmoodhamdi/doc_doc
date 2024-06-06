@@ -10,9 +10,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController passwordConfirmationController =
-      TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+   TextEditingController phoneController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isObscureText = true;
 
@@ -25,7 +23,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         name: nameController.text,
         email: emailController.text,
         password: passwordController.text,
-        passwordConfirmation: passwordConfirmationController.text,
+        passwordConfirmation: passwordController.text,
         phone: phoneController.text,
       ),
     );

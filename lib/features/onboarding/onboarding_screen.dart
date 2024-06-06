@@ -2,7 +2,6 @@ import 'package:doc_doc/core/utils/theme/widget_themes/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widgets/doc_logo_and_name.dart';
 import 'widgets/doctor_image_and_text.dart';
 import 'widgets/get_started_button.dart';
@@ -12,6 +11,7 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
