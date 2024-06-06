@@ -5,7 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AlreadyHaveAccountText extends StatelessWidget {
-  const AlreadyHaveAccountText({Key? key}) : super(key: key);
+  const AlreadyHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
